@@ -1,0 +1,1 @@
+# lot_vue_test_project
