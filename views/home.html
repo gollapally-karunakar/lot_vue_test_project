@@ -1,0 +1,33 @@
+
+<div class="main">
+    <span class="messages" ng-show="showMessagesDiv">
+        <span class="times" ng-click="close()">&times;</span>
+        {{showMessageContent}}
+    </span>
+    <h1 class="login-heading">Login</h1>
+    <div class="login-main-div">
+        <form class="login-form" name="loginForm">
+            <div class="input-class">
+                <label for="uname"><strong>Username :</strong></label>
+                <input type="text" ng-pattern="/^[a-zA-Z]*$/" ng-model="loginObj.Username" placeholder="Enter Username" name="uname" required>
+                <br>
+                <div>
+                    <span class="error-messages" ng-if="loginForm.uname.$invalid && loginForm.uname.$dirty && !loginForm.uname.$error.pattern">Please Enter valid user name !</span>
+                    <span class="error-messages" ng-if="loginObj.Username.length < 4">Length should not be less than 4 !</span>
+                    <span class="error-messages" data-ng-show="loginForm.uname.$error.pattern" >Allow only alphabets</span>
+                </div>
+                <br><br>
+                <label for="psw"><strong>Password :</strong></label>
+                <input type="password" data-ng-pattern="/^\S*$/" ng-model="loginObj.password" placeholder="Enter Password" name="psw" required>
+                <br>
+                <div>
+                    <span class="error-messages" ng-if="loginForm.psw.$invalid && loginForm.psw.$dirty !loginForm.psw.$error.pattern">Please Enter Password!</span>
+                    <span class="error-messages" ng-if="loginObj.password.length < 4">Length should not be less than 4 !</span>
+                    <span class="error-messages" data-ng-show="loginForm.psw.$error.pattern" >White Space not allowed</span>
+                </div>
+                <br><br>
+                <button type="submit" class="loginBtn" ng-click="login(loginObj)">Login</button>
+            </div>
+        </form>
+    </div>
+</div>
