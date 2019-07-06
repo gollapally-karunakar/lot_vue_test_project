@@ -57,9 +57,8 @@ function dashboardController(
     //Edit post
     $scope.editPost = function(editValues){
         $scope.isOpenEditForm = false;
-        console.log('editValues: ', editValues);
-
-        AppService.editPost(editValues).then(function(response){
+        var editData = JSON.parse(JSON.stringify(editValues));
+        AppService.editPost(editData).then(function(response){
             showSuccessAndErrorMsgs(true,'Updated Post Successfully !');
         },function (error) {
             showSuccessAndErrorMsgs(true,'Sorry,Try again !');
